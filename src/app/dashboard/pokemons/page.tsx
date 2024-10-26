@@ -8,8 +8,9 @@ const getPokemons = async (limit = 20, offset = 0): Promise<SimplePokemon[]> => 
   const pokemons = data.results.map(pokemon => ({
     id: pokemon.url.split('/').at(-2)!,
     name: pokemon.name
-  }));
+  })
 
+  );
   //throw new Error('Esto es un fucking error');
 
   return pokemons;
@@ -22,9 +23,9 @@ export default async function PokemonsPage() {
   return (
     <div className="flex flex-col" >
 
-      <span className="text-5xl my-2" >Listado de Pokémons <small>estático</small></span>
+      <span className="text-5xl my-2" >Listado de Pokémons <small className="text-blue-500" >estático</small></span>
 
-      <PokemonGrid pokemons={pokemons}/>
+      <PokemonGrid pokemons={pokemons} />
 
     </div>
   );
